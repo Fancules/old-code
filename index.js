@@ -25,6 +25,7 @@ import iseq from './utils/isEqual.js';
 
 const storeMongoDB = connectMongoDB(session);
 const link = 'mongodb+srv://Fancules:' + KEY.PASSWORD_MONGODB + '@firstcluster.gswgr.mongodb.net/myFirstDatabase?retryWrites=true&';
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 const store = new storeMongoDB({
@@ -81,7 +82,7 @@ async function start() {
             useFindAndModify: false
         });
 
-        app.listen(8080, () => {
+        app.listen(PORT, () => {
             console.log('it is working');
         });
 
