@@ -1,0 +1,18 @@
+<div class="row">
+    <div id="login" class="col s12">
+        <form action="/auth/reset/resetpass" method='post' class="col s12" autocomplete="off">
+        <div class="row">
+            <h1>New password</h1>
+
+            <div class="input-field col s7">
+            <input name='password' id="passord" type="password" class="validate" autocomplete="new-password">
+            <label for="password">Password</label>
+            </div>
+        </div>
+        <input type="hidden" name="userId" value="{{userId}}">
+        <input type="hidden" name="token" value="{{token}}">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button type="submit" class='btn'>New password</button>
+        </form>
+    </div>
+</div>

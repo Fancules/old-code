@@ -1,0 +1,38 @@
+
+    <h3 class='container'>Edit the team</h3>
+
+    
+    <form action="/list/edit" method='post' class="col s12 remo">
+      <div class="row">
+        <div class="input-field col s6">
+          <input name='team' id="team" type="text" class="validate" value='{{teamInfo.team}}'>
+          <label for="team">Football club</label>
+        </div>
+        <div class="input-field col s6">
+          <input name='estDate' id="estDate" type="number" class="validate" value='{{teamInfo.estDate}}'>
+          <label for="estdate">Team established in:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name='img' id="img" type="text" class="validate" value='{{teamInfo.img}}'>
+          <label for="img">Link for the logo</label>
+        </div>
+      </div>
+      
+      <input name="id" type="hidden" value="{{teamInfo.id}}">
+      <!--
+      <div class="row">
+        <div class="input-field col s12">
+          <input name='mail' id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+-->   <input type="hidden" name="_csrf" value="{{csrf}}">
+      <button type="submit" class='btn'>Submit<i class="material-icons right">send</i></button>
+    </form>
+    <form action="/list/remove" method="post">
+      <input type="hidden" name='id' value="{{teamInfo.id}}">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <button type="submit" class='btn red'>Remove</button>
+    </form>

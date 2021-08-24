@@ -1,0 +1,36 @@
+<h1>Orders</h1>
+
+{{#if orders.length}}
+    {{#each orders}}
+    <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title white-text">My orders</span>
+            <p>Name: {{this.user.name}} ({{this.user.userId.email}})</p>
+            <p class="date">{{this.date}}</p>
+            <h5>Order #{{this._id}}</h5>
+            <ul>
+                {{#each this.teams}}
+                    <li>
+                        <p>Club: {{this.team.team}} (x<strong>{{this.count}}</strong>)</p>
+                        <hr>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="card-action">
+            <form action="/orders/remove" method="POST">
+                <input name="id" type="hidden" value="{{this._id}}">
+                <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                <button class="red" type="submit">Remove order</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+{{else}}
+    <p>You didn't order anything yet</p>
+    <p>Please go to </p><a href="/cart">Shopping cart</a>
+{{/if}}

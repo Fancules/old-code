@@ -1,0 +1,37 @@
+<h1 class="tit">Shopping cart</h1>
+
+
+{{#if teams.length}}
+    <div id="cart">
+        <table class='highlight'>
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Established in</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each teams}}
+                    <tr>
+                        <td>{{this.team}}</td>
+                        <td>{{this.estDate}}</td>
+                        <td>{{this.count}}</td>
+                        <td>
+                            <form>
+                                <button class='btn-small rem' data-id='{{this.id}}' data-csrf='{{@root.csrf}}'>Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <form action="/orders" method="POST">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button type="submit" style="margin-top: 25px;" class='btn-small'>Order</button>
+    </form>
+{{else}}
+    <p>Shopping cart is empty</p>
+{{/if}}

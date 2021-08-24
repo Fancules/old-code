@@ -1,0 +1,35 @@
+{{#if teams.length}}
+   {{#each teams}}
+    <div class="row logo">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{img}}">
+        </div>
+        <div class="card-content">
+         <b><span>{{team}}</span></b>
+          <p>Established in {{estDate}}</p>
+        </div>
+        <div class="card-action"l>
+          <a href="/list/{{id}}" target="_blank">Discover more about club</a>
+          {{#if @root.isAuth}}
+
+            {{#iseq @root.userId userId._id}}
+              <a href="/list/{{id}}/edit?allow=true">Edit information</a>
+            {{/iseq}}
+
+            <form action="cart/add" method="post" style="margin: 5px; text-align: center">
+              <input name="id" type="hidden" value="{{id}}">
+              <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+              <button class="btn btn-primary">Buy ticket</button>
+            </form>  
+          {{/if}}      
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+{{else}}
+    <p class='big'>There is nothing here yet</p>
+{{/if}}
+

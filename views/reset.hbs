@@ -1,0 +1,20 @@
+<div class="row">
+    <div id="login" class="col s12">
+        <form action="/auth/reset" method='post' class="col s12" autocomplete="off">
+        <div class="row">
+            <h1>Reset password</h1>
+
+            {{#if error}}
+            <p class="alert">{{error}}</p>
+            {{/if}}
+
+            <div class="input-field col s7">
+            <input name='email' id="email" type="email" class="validate" autocomplete="email">
+            <label for="email">Email</label>
+            </div>
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button type="submit" class='btn'>Reset password</button>
+        </form>
+    </div>
+</div>

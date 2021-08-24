@@ -1,0 +1,33 @@
+.nav-wrapper {
+    padding: 0 120px;
+}
+
+.card-content span {
+    font-style: italic;
+    color: #3021de;
+    font-size: 20px;
+}
+
+.logo {
+    width: 75%;
+}
+
+.remo {
+    margin-bottom: 0.45rem;
+}
+
+.login{
+    padding-top: 20px;
+}
+
+.alert{
+    font-size: 20px;
+    color: blueviolet;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.avatar {
+    margin-top: 2rem;
+    max-width: 500px;
+    max-height: auto;
+}

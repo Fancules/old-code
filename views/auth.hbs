@@ -1,0 +1,66 @@
+<div class="login">
+    <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a class="active" href="#login">Login</a></li>
+        <li class="tab col s6"><a href="#register">Sign up</a></li>
+      </ul>
+    </div>
+    <div id="login" class="col s12">
+      <form action="/auth/login" method='post' class="col s12" autocomplete="off">
+        <div class="row">
+          <h1>Please log in</h1>
+
+          {{#if loginError}}
+            <p class="alert">{{loginError}}</p>
+          {{/if}}
+          {{#if success}}
+            <p class="alert">{{success}}</p>
+          {{/if}}
+
+          <div class="input-field col s7">
+            <input name='email' id="email" type="email" class="validate" autocomplete="email">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s7">
+            <input name='password' id="password" type="password" class="validate" autocomplete="new-password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <p><a href="/auth/reset">Forgot the password?</a></p>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button type="submit" class='btn'>Login</button>
+      </form>
+    </div>
+    <div id="register" class="col s12">
+      <form action="/auth/register" method='post' class="col s12" autocomplete="off">
+        <div class="row">
+          <h1>Please sign up</h1>
+
+          {{#if registerError}}
+            <p class="alert">{{registerError}}</p>
+          {{/if}}
+
+          <div class="input-field col s7">
+            <input name='email' id="remail" type="email" class="validate" autocomplete="email" formnovalidate='formnovalidate'>
+            <label for="remail">Email</label>
+          </div>
+          <div class="input-field col s7">
+            <input name='name' id="name" type="text" class="validate">
+            <label for="name">Your name</label>
+          </div>
+          <div class="input-field col s7">
+            <input name='password' id="rpassword" type="password" class="validate" autocomplete="new-password">
+            <label for="rpassword">Password</label>
+          </div>
+          <div class="input-field col s7">
+            <input name='confirm' id="confirm" type="password" class="validate" autocomplete="new-password">
+            <label for="confirm">Password</label>
+          </div>
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button type="submit" class='btn'>Login</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {{#if isProfile}}
+                <li class='active'>
+                    <a><img class="material-icons left" style="height: auto; width:42px" src="{{user.avatar}}" alt="">
+                    {{!-- <a href="/profile">{{user.name}}</a>--}}</a> 
+                </li>
+            {{else}}
+                <li><a href="/profile">Profile</a></li>
+            {{/if}}
+            
+            {{#if isActive2}}
+                <li class='active'><a href="/list">List of teams</a></li>
+            {{else}}
+                <li><a href="/list">List of teams</a></li>
+            {{/if}}
+
+            {{#if isActive}}
+                <li class='active'><a href="/">Main page</a></li>
+            {{else}}
+                <li><a href="/">Main page</a></li>
+            {{/if}}
+
+            {{#if isAuth}}
+                {{#if isActive3}}
+                    <li class='active'><a href="/cart"></a>Shopping cart</li>
+                {{else}}
+                    <li><a href="/cart">Shopping cart</a></li>
+                {{/if}}
+                
+                {{#if isActive1}}
+                    <li class='active'><a href="/addTeam">Add team</a></li>
+                {{else}}
+                    <li><a href="/addTeam">Add team</a></li>
+                {{/if}}
+
+                {{#if isOrder}}
+                    <li class='active'><a href="/orders">Orders</a></li>
+                {{else}}
+                    <li><a href="/orders">Orders</a></li>
+                {{/if}}
+                    <li><a href="/auth/logout">Log out</a></li>
+            {{else}}
+                {{#if isLogin}}
+                    <li class='active'><a href="/auth#login">Login</a></li>
+                {{else}}
+                    <li><a href="/auth#login">Login</a></li>
+                {{/if}}
+            {{/if}}
+        </ul>
+    </div>
+</nav>
